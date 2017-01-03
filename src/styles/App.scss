@@ -29,6 +29,39 @@ html, body {
   overflow: hidden;
 
   background-color: #ddd;
+
+/*将css选择器提到最外层，与.img-sec同级*/
+  @at-root {
+    .img-figure {
+      position: absolute;
+
+      width: 320px;
+      height: 360px;
+      margin: 0;
+      padding: 40px;
+
+      background-color: #fff;
+
+      box-sizing: border-box;
+    }
+
+    figcaption {
+      text-align: center;
+
+      .img-title {
+        margin: 20px 0 0 0;
+
+        color: #a7a0a2;         /*浅灰*/
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+/*将图片尺寸变为240px*240px*/
+.img-figure img {
+  width: 240px;
+  height: 240px;
 }
 /*image -- end*/
 
