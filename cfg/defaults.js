@@ -49,7 +49,7 @@ function getDefaultModules() {
         loader: 'json-loader'
       },
       {
-        test: /\.(png|jpg|gif|woff|woff2)$/,
+        test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/,
         loader: 'url-loader?limit=8192'
       },
       {
