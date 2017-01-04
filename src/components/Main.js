@@ -47,7 +47,7 @@ var ImgFigure = React.createClass({
 		}
 
 		return (
-			<figure className="img-figure" style={styleObj}>
+			<figure className="img-figure" style={styleObj} ref="figure">
 				<img src={this.props.data.imageURL}
 					 alt={this.props.data.title}
 				 />
@@ -158,7 +158,8 @@ var GalleryByReactApp = React.createClass({
 					// 		left: '0',
 					// 		top: '0'
 					// 	},
-					//	rotate: 0     //旋转角度
+					//	rotate: 0,         //旋转角度
+					//	isInverse: false   //图片正反面
 					// }
 				]
 			};
@@ -176,7 +177,7 @@ var GalleryByReactApp = React.createClass({
 
 		//拿到imgFigure的大小
 		// var imgFigureDOM = ReactDOM.findDOMNode(this.refs.imgFigure0),
-		var imgFigureDOM = this.refs.imgFigure0,
+		var imgFigureDOM = this.refs.imgFigure0.refs.figure,
 			imgW = imgFigureDOM.scrollWidth,
 			imgH = imgFigureDOM.scrollWidth,
 			halfImgW = Math.ceil(imgW / 2),
