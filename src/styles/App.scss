@@ -30,6 +30,8 @@ html, body {
 
   background-color: #ddd;
 
+  perspective: 1800px;     /*舞台背景透视*/
+
 /*将css选择器提到最外层，与.img-sec同级*/
   @at-root {
     .img-figure {
@@ -43,6 +45,14 @@ html, body {
       background-color: #fff;
 
       box-sizing: border-box;
+      cursor: pointer;             /*鼠标指针形状*/
+
+      transform-origin: 0 50% 0;   /*旋转中心线是左线*/
+      transform-style: preserve-3d;
+      transition: transform .6s ease-in-out, left .6s ease-in-out, top .6s ease-in-out;
+      &.isInverse {
+        transform: translate(320px) rotateY(180deg);
+      }
     }
 
     figcaption {
@@ -53,6 +63,31 @@ html, body {
 
         color: #a7a0a2;         /*浅灰*/
         font-size: 16px;
+      }
+    
+      .img-back{
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        padding: 50px 40px;
+        overflow: auto;
+
+        color: #a7a0a2;
+        font-size: 22px;
+        line-height: 1.25;
+        text-align: center;
+        background-color: #fff;
+        box-sizing: border-box;
+
+        /*先开始时.img-back，旋转了180度，因为translateZ(1px)，位于正面图像的下方*/
+        /*当.img-figure旋转时，.img-back又旋转了180度，旋转度数为360,因为translateZ(1px)，位于正面图像的上方*/
+        transform: rotateY(180deg) translateZ(1px);
+        /*translateZ(1px) 是为了解决Safari 的bug*/
+        backface-visibility: hidden;
       }
     }
   }
