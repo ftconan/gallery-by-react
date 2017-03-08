@@ -6,7 +6,7 @@
 
 * 安装node.js环境
 * 安装ruby环境
-* 使用yoman、webpack
+* 使用yeoman、webpack
 * 安装yeoman: npm install -g yo
 * 安装yeoman模板: npm install -g generator-react-webpack
 * 自动生成项目: yo react-webpack gallery-by-react 
